@@ -22,20 +22,20 @@ class StoreSocieteRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'raison_social' => ['required','string','max:255'],
-            'adresse' => ['required','string','max:255'],
-            'ville' => ['required','string','max:100'],
-            'tel' => '[required','string','max:20]',
-            'nom_contact' => ['required','string','max:255'],
-            'email' => ['required','email','max:255'],
-            'ice' => ['required','string','max:15'],
-            'logo' => ['nullable','image','mimes:jpeg,png,jpg,gif'],
+            'raison_social' => ['required', 'string', 'max:255'],
+            'adresse' => ['required', 'string', 'max:255'],
+            'ville' => ['required', 'string', 'max:100'],
+            'tel' => ['required', 'string', 'max:20'], // Fixed this line
+            'nom_contact' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'email', 'max:255'],
+            'ice' => ['required', 'string', 'max:15'],
+            'logo' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif'],
         ];
     }
     public function messages(): array
     {
         return [
-            'raison_social.required' => 'Le champ Raison Sociale est obligatoire.',
+           'raison_social.required' => 'Le champ Raison Sociale est obligatoire.',
             'adresse.required' => 'Le champ Adresse est obligatoire.',
             'ville.required' => 'Le champ Ville est obligatoire.',
             'tel.required' => 'Le champ Téléphone est obligatoire.',

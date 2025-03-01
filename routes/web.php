@@ -8,5 +8,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('AutoCars', AutoCarController::class);
-Route::resource('Societes', SocieteController::class);
+Route::resource('autoCars', AutoCarController::class);
+Route::resource('societes', SocieteController::class);
