@@ -9,4 +9,4 @@ Route::get('/', function () {
 });
 
 Route::resource('AutoCars', AutoCarController::class);
-Route::resource('Societes', SocieteController::class);
+Route::resource('societes',SocieteController::class);
