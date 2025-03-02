@@ -30,7 +30,10 @@ class SocieteController extends Controller
      */
     public function store(StoreSocieteRequest $request)
     {
-        Societe::create($request->all()); 
+        $formFields=$request->validated();
+        dd($formFields);
+        $formFields['logo']=$request->file('image')->store('sociele','public');
+        Societe::create($formFields);
 
         return redirect()->route("societes.index")->with("success", "votre societe est bien crée");
     }
