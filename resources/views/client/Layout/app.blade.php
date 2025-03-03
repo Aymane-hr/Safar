@@ -4,7 +4,7 @@
 <!--   03:20:39 GMT -->
 @include("client.Layout.head")
 
-<body>  
+<body>
    @include("client.Layout.header")
     <!--header area end-->
 
@@ -20,7 +20,7 @@
 ============================================ -->
 
 
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Plugins JS -->
 <script src="{{asset('assets/js/plugins.js')  }}"></script>
 

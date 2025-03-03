@@ -1,14 +1,12 @@
-<section class="slider_section d-flex align-items-center" data-bgimg="assets/img/slider/slider3.jpg">
+<section class="slider_section d-flex align-items-center">
     <div class="slider_area owl-carousel">
         <div class="single_slider d-flex align-items-center">
             <div class="container">
                 <div class="row">
-                    <div class="col-xl-6 col-md-6">
+                    <div class="col-xl col-md">
                         <div class="slider_content">
-                            <h1>Next level of Drone</h1>
-                            <h2>Insane Quality for use</h2>
-                            <p>Special offer <span> 20% off </span> this week</p>
-                            <a class="button" href="product-details.html">Buy now</a>
+                           {{-- <x-recherche-voyage-v1/> --}}
+                           <x-recherche-voyage-v2/>
                         </div>
                     </div>
                 </div>
