@@ -29,13 +29,13 @@ class StoreSocieteRequest extends FormRequest
             'nom_contact' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255'],
             'ice' => ['required', 'string', 'max:15'],
-            'logo' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif'],
+            'logo' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,webp'],
         ];
     }
     public function messages(): array
     {
         return [
-           'raison_social.required' => 'Le champ Raison Sociale est obligatoire.',
+            'raison_social.required' => 'Le champ Raison Sociale est obligatoire.',
             'adresse.required' => 'Le champ Adresse est obligatoire.',
             'ville.required' => 'Le champ Ville est obligatoire.',
             'tel.required' => 'Le champ Téléphone est obligatoire.',

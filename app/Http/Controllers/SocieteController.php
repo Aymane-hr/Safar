@@ -13,7 +13,7 @@ class SocieteController extends Controller
      */
     public function index()
     {
-        $societes = Societe::all();
+        $societes = Societe::paginate();
         return view('societes.index', compact('societes'));
     }
 
@@ -30,9 +30,11 @@ class SocieteController extends Controller
      */
     public function store(StoreSocieteRequest $request)
     {
-        $formFields=$request->validated();
-        dd($formFields);
-        $formFields['logo']=$request->file('image')->store('sociele','public');
+        $formFields = $request->validated();
+
+        if ($request->hasFile('logo')) {
+            $formFields['logo'] = $request->file('logo')->store('societes', 'public');
+        }
         Societe::create($formFields);
 
         return redirect()->route("societes.index")->with("success", "votre societe est bien crée");
@@ -59,7 +61,14 @@ class SocieteController extends Controller
      */
     public function update(UpdateSocieteRequest $request, Societe $societe)
     {
-        $societe->update($request->all());
+        $formFields = $request->validated();
+
+        if ($request->hasFile('logo')) {
+
+
+            $formFields['logo'] = $request->file('logo')->store('societes', 'public');
+        }
+        $societe->update($formFields);
 
         return redirect()->route("societes.index")->with("update", "votre societe est bien modifier");
     }

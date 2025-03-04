@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateAutoCarRequest extends FormRequest
+class UpdateautocarRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,31 +22,23 @@ class UpdateAutoCarRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'raison_social' => ['required','string','max:255'],
-            'adresse' => ['required','string','max:255'],
-            'ville' => ['required','string','max:100'],
-            'tel' => '[required','string','max:20]',
-            'nom_contact' => ['required','string','max:255'],
-            'email' => ['required','email','max:255'],
-            'ice' => ['required','string','max:15'],
-            'logo' => ['nullable','image','mimes:jpeg,png,jpg,gif'],
+'societe_id' => 'required|exists:societes,id', // Ensure societe_id exists in societes table
+            'nbr_siege' => 'required|integer|min:1', // Validate as integer
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp', // Validate image file
+            'matricule' => 'required|string|max:255', // Validate as string
         ];
     }
 
     public function messages(): array
     {
         return [
-            'raison_social.required' => 'Le champ Raison Sociale est obligatoire.',
-            'adresse.required' => 'Le champ Adresse est obligatoire.',
-            'ville.required' => 'Le champ Ville est obligatoire.',
-            'tel.required' => 'Le champ Téléphone est obligatoire.',
-            'nom_contact.required' => 'Le champ Nom du Contact est obligatoire.',
-            'email.required' => 'Le champ Email est obligatoire.',
-            'email.email' => 'L\'adresse email n\'est pas valide.',
-            'ice.required' => 'Le champ ICE est obligatoire.',
-            'logo.image' => 'Le logo doit être une image.',
-            'logo.mimes' => 'Les formats valides pour le logo sont jpeg, png, jpg, gif.',
-
+            'nbr_siege.required' => 'Le champ nombre de siege est obligatoire.',
+            'nbr_siege.double' => 'Le champs nombre de siege doit être une chaîne de caractères.',
+            'nbr_siege.min' => 'Le champs désignation doit contenir au moins 1 caractères.',
+            'matricule.required' => 'Le champ matricule est obligatoire.',
+            'matricule.string' => 'Le champ matricule doit être une chaîne de caractères',
+            'matricule.max' => 'Le champ matricule doit contenir maximum 255 caractères.',
+            'image.mimes' => 'Les formats valides pour image sont jpeg, png, jpg, gif.',
         ];
     }
 }

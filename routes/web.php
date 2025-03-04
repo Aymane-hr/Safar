@@ -10,6 +10,5 @@ Route::get('/admin', function () {
 Route::get('/', function () {
     return view('client.Layout.app');
 });
-
-Route::resource('autoCars', AutoCarController::class);
+Route::resource('autocars',AutocarController::class);
 Route::resource('societes', SocieteController::class);

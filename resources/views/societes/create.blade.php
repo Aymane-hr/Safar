@@ -1,44 +1,141 @@
-
-@extends('layouts.app')
+@extends('admin.Layout.app')
+@section('title', 'Ajouter nouvelle Societe') <!-- Define the title section -->
 
 @section('content')
-<div class="container">
-    <h1>Create New Societe</h1>
-    <form action="{{ route('societes.store') }}" method="POST" >
+<div class="container mt-5">
+    <h1 class="mb-4 text-center">Ajouter nouvelle Societe</h1>
+    <form action="{{ route('societes.store') }}" method="POST" enctype="multipart/form-data" class="bg-light p-4 rounded shadow-sm">
         @csrf
-        <div class="form-group">
-            <label for="raison_social">Raison Social</label>
-            <input type="text" name="raison_social" id="raison_social" class="form-control" >
+
+        <!-- Raison Social -->
+        <div class="mb-3">
+            <label for="raison_social" class="form-label fw-bold">Raison Social:</label>
+            <input
+                type="text"
+                name="raison_social"
+                id="raison_social"
+                class="form-control">
+            <small class="text-danger">
+                @error('raison_social')
+                    {{ $message }}
+                @enderror
+            </small>
         </div>
-        <div class="form-group">
-            <label for="adresse">Adresse</label>
-            <input type="text" name="adresse" id="adresse" class="form-control" >
+
+        <!-- Adresse -->
+        <div class="mb-3">
+            <label for="adresse" class="form-label fw-bold">Adresse:</label>
+            <input
+                type="text"
+                name="adresse"
+                id="adresse"
+                class="form-control">
+            <small class="text-danger">
+                @error('adresse')
+                    {{ $message }}
+                @enderror
+            </small>
         </div>
-        <div class="form-group">
-            <label for="ville">Ville</label>
-            <input type="text" name="ville" id="ville" class="form-control" >
+
+        <!-- Ville -->
+        <div class="mb-3">
+            <label for="ville" class="form-label fw-bold">Ville:</label>
+            <input
+                type="text"
+                name="ville"
+                id="ville"
+                class="form-control">
+            <small class="text-danger">
+                @error('ville')
+                    {{ $message }}
+                @enderror
+            </small>
         </div>
-        <div class="form-group">
-            <label for="tel">Tel</label>
-            <input type="text" name="tel" id="tel" class="form-control" >
+
+        <!-- Tel -->
+        <div class="mb-3">
+            <label for="tel" class="form-label fw-bold">Tel:</label>
+            <input
+                type="text"
+                name="tel"
+                id="tel"
+                class="form-control">
+            <small class="text-danger">
+                @error('tel')
+                    {{ $message }}
+                @enderror
+            </small>
         </div>
-        <div class="form-group">
-            <label for="nom_contact">Nom Contact</label>
-            <input type="text" name="nom_contact" id="nom_contact" class="form-control" >
+
+        <!-- Nom Contact -->
+        <div class="mb-3">
+            <label for="nom_contact" class="form-label fw-bold">Nom Contact:</label>
+            <input
+                type="text"
+                name="nom_contact"
+                id="nom_contact"
+                class="form-control">
+            <small class="text-danger">
+                @error('nom_contact')
+                    {{ $message }}
+                @enderror
+            </small>
         </div>
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" name="email" id="email" class="form-control" >
+
+        <!-- Email -->
+        <div class="mb-3">
+            <label for="email" class="form-label fw-bold">Email:</label>
+            <input
+                type="email"
+                name="email"
+                id="email"
+                class="form-control">
+            <small class="text-danger">
+                @error('email')
+                    {{ $message }}
+                @enderror
+            </small>
         </div>
-        <div class="form-group">
-            <label for="ice">ICE</label>
-            <input type="text" name="ice" id="ice" class="form-control" >
+
+        <!-- ICE -->
+        <div class="mb-3">
+            <label for="ice" class="form-label fw-bold">ICE:</label>
+            <input
+                type="text"
+                name="ice"
+                id="ice"
+                class="form-control">
+            <small class="text-danger">
+                @error('ice')
+                    {{ $message }}
+                @enderror
+            </small>
         </div>
-        <div class="form-group">
-            <label for="logo">Logo</label>
-            <input type="file" name="logo" id="logo" class="form-control">
+
+        <!-- Logo -->
+        <div class="mb-3">
+            <label for="logo" class="form-label fw-bold">Logo:</label>
+            <input
+                type="file"
+                name="logo"
+                id="logo"
+                class="form-control">
+            <small class="text-danger">
+                @error('logo')
+                    {{ $message }}
+                @enderror
+            </small>
         </div>
-        <button type="submit" class="btn btn-primary">Create</button>
+
+        <!-- Submit and Cancel Buttons -->
+        <div class="d-flex justify-content-end">
+            <button type="submit" class="btn btn-primary me-2">
+                <i class="bi bi-plus-circle"></i> Créer
+            </button>
+            <a href="{{ route('societes.index') }}" class="btn btn-secondary">
+                Annuler
+            </a>
+        </div>
     </form>
 </div>
 @endsection
