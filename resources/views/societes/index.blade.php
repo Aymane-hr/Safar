@@ -1,13 +1,20 @@
+<<<<<<< HEAD
 @extends('admin.Layout.app') <!-- Extend the layout -->
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+>>>>>>> cd1168ce4001f5872536fa14151814125162db60
 
-@section('title', 'Liste des societes') <!-- Define the title section -->
-
-@section('content') <!-- Define the content section -->
     <div class="container mt-4">
-        {{-- @include('layouts.Components.Flachbag') --}}
         <h1 class="text-center mb-4">Liste des societes</h1>
 
-        {{-- Add Article Button --}}
+        
         <div class="mb-3">
             <a href="{{ route('societes.create') }}" class="btn btn-primary">Add Societe</a>
         </div>
@@ -33,6 +40,10 @@
                 <tbody>
                     @foreach ($societes as $societe)
                         <tr>
+<<<<<<< HEAD
+=======
+                           
+>>>>>>> cd1168ce4001f5872536fa14151814125162db60
 
                             <td>{{ $societe->id }}</td>
                             <td>{{ $societe->raison_social }}</td>
@@ -71,4 +82,6 @@
             {{ $societes->links() }}
         </div>
     </div>
-@endsection
+    </body>
+</html>
+
